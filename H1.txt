@@ -1,9 +1,7 @@
 huyngo1234455
-<<<<<<< HEAD
+
 ngohuy123
-=======
-huyngo123
->>>>>>> 0787cf663f59eeb9f784a77da06d23e7965ec851
+
 echo "# DeMo" >> README.md
 git init
 git add README.md
