@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <title> In </title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <!--<link rel="stylesheet" href="./css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="./js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./css/target-admin.css">
+  <link rel="stylesheet" href="./css/custom.css">
+
+
+</head>
+
+<body class="account-bg">
+
+
+
+<div class="account-wrapper">
+
+ 
+    <img id="barcode"/>
+ 
+<div id="qrcode" style="width:128px; height:128px; margin-top:15px;"></div>
+
+ 
+</div> <!-- /.account-wrapper -->
+
+
+<script src="js/libs/jquery-1.10.1.min.js"></script>
+<script src="js/libs/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="./js/libs/excanvas.compiled.js"></script>
+<![endif]-->
+<!-- App JS -->
+<script src="./js/target-admin.js"></script>
+
+<!-- Plugin JS -->
+<script src="./js/target-account.js"></script>
+
+<script src="js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!--<script src="javascript/min/main.min.js"></script>-->
+<script src="js/scripts.js"></script>
+
+<script src="public/javascript/JsBarcode.code128.min.js"></script>
+<script src="public/javascript/qrcode.js"></script>
+<script>
+
+//JsBarcode("#barcode", localStorage.getItem("barcode"));
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 100,
+	height : 70
+});
+
+function makeCode () {		
+	//var elText = document.getElementById("text");
+	
+	//if (!elText.value) {
+		//alert("Input a text");
+		//elText.focus();
+		//return;
+	//}
+	//console.log(localStorage.getItem("barcode"));
+	
+	qrcode.makeCode(localStorage.getItem("barcode"));
+	
+}
+
+makeCode();
+var getDataUrl = function (img) {
+  var canvas = document.createElement('canvas')
+  var ctx = canvas.getContext('2d')
+
+  canvas.width = img.width
+  canvas.height = img.height
+  ctx.drawImage(img, 0, 0)
+
+  // If the image is not png, the format
+  // must be specified here
+  return canvas.toDataURL()
+}
+
+// You can then get the data URL when the image got loaded:
+var img = document.querySelector('img')
+
+img.addEventListener('load', function (event) {
+  var dataUrl = getDataUrl(event.currentTarget)
+  console.log(dataUrl)
+})
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3244 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <title> Admin_VinaTT</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
+  <!--<link rel="stylesheet" href="./css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+  <link rel="stylesheet" href="js/libs/jquery-1.10.1.min.js">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="js/plugins/morris/morris.css">
+  <link rel="stylesheet" href="js/plugins/icheck/skins/minimal/blue.css">
+  <link rel="stylesheet" href="js/plugins/select2/select2.css">
+  <link rel="stylesheet" href="js/plugins/fullcalendar/fullcalendar.css">
+  <link href="js/dist/css/sb-admin-2.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/target-admin.css">
+  <link rel="stylesheet" href="css/custom.css">
+ <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]-->
+
+
+  <script type="text/javascript" src="js/pdfmake.js"></script>
+  <script type="text/javascript" src="js/vfs_fonts.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+  <![endif]-->
+
+  <style>
+    .is-hidden {
+      display: none;
+    }
+    #maplead {
+      height: 500px;
+      width: 100%;
+    }
+    #map2 {
+      height: 500px;
+      width: 100%;
+    }
+    #mapnpp {
+      height: 500px;
+      width: 100%;    }
+    #mapnsc {
+      height: 500px;
+      width: 100%;    }
+    #mapncc{
+      height:500px;
+      width:100%;
+    }
+    #map {
+      height: 100%;
+      width: 50%;
+    }
+
+    #description {
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    #infowindow-content .title {
+      font-weight: bold;
+    }
+
+    #infowindow-content {
+      display: none;
+    }
+
+    #map #infowindow-content {
+      display: inline;
+    }
+
+    .pac-card {
+      margin: 10px 10px 0 0;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      font-family: Roboto;
+    }
+
+    #pac-container {
+      padding-bottom: 12px;
+      margin-right: 12px;
+    }
+    .pac-container {
+      background-color: #FFF;
+      z-index: 1051 !important;
+      position: fixed;
+      float: left;
+    }
+    .pac-controls {
+      display: inline-block;
+      padding: 5px 11px;
+    }
+
+    .pac-controls label {
+      font-family: Roboto;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    #pac-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 12px;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 400px;
+    }
+
+    #pac-input:focus {
+      border-color: #4d90fe;
+    }
+
+    #title {
+      color: #fff;
+      background-color: #4d90fe;
+      font-size: 25px;
+      font-weight: 500;
+      padding: 6px 12px;
+    }
+    #target {
+      width: 345px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+  <!-- Navigation -->
+  <!---->
+  <div class="navbar">
+
+    <div class="container">
+
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <a class="navbar-brand navbar-brand-image" href="./index.html">
+          <a><img src="img/logo.png" style="width: 60px;height: 60px" alt="Site Logo"></a>
+
+
+
+        </a>
+
+      </div> 
+      <div class="navbar-collapse collapse" style="background-color:#369b36">
+        
+
+	
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <li class="dropdown navbar-profile showhidemenu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style="color:white">
+
+              <i class="fa fa-stack-exchange" ></i> &nbsp; <b style="color:white"> Danh mục</b> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+
+              <li class="menuqrcode">
+                <a href="#">
+                  <i class="fa  fa-flask" ></i>
+                  &nbsp;&nbsp;TestQRcode
+                </a>
+              </li>
+			  <li class="menuloaisp">
+                <a href="#">
+                  <i class="fa  fa-flask" ></i>
+                  &nbsp;&nbsp;Loại sản phẩm
+                </a>
+              </li>
+              <li class="divider"></li>
+
+
+              <li class="menusanpham">
+                <a href="#">
+                  <i class="fa fa-lemon-o"></i>
+                  &nbsp;&nbsp; Sản phẩm
+                </a>
+              </li>
+              <li class="divider"></li>
+
+              <li class="menunhacungcap">
+                <a href="#">
+                  <i class="fa fa-home"></i>
+                  &nbsp;&nbsp;(Hộ sản xuất-Nhà cung cấp)
+                </a>
+              </li>
+              <li class="divider"></li>
+
+              <li class="menunhasoche">
+                <a href="#" >
+                  <i class="fa fa-random"></i>
+                  &nbsp;&nbsp;Nhà sơ chế/ chế biến
+                </a>
+              </li>
+              <li class="divider"></li>
+
+              <li class="menunhaphanphoi">
+                <a href="#">
+                  <i class="fa  fa-truck"></i>
+                  &nbsp;&nbsp;Nhà phân phối
+                </a>
+              </li>
+			 
+              <li class="divider"></li>
+			
+
+ 
+
+            </ul>
+
+          </li>
+
+          <li class="menudangkysp">
+            <a href="javascript:;" style="color:white"><i class="fa  fa-barcode"></i>&nbsp;<b style="color:white" >Đăng ký sản phẩm</b></a>
+          </li>
+		  <!--
+			<li class="dropdown navbar-profile menudonhang">
+            <a  class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style="color:white">
+            <i class="fa fa-shopping-cart">&nbsp;Đơn hàng</i>
+            <span class="navbar-visible-collapsed"></span>
+            <span class="badge sldhcart">0</span>
+          </a>
+          </li>
+		  -->
+		  <li class="dropdown navbar-profile">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style="color:white">
+
+              <i class=" fa fa-subscript" ></i> &nbsp; <b style="color:white"> Quản lý WebSite</b> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+
+             
+			
+
+			 <li class="dropdown navbar-profile menuthongke">
+				
+           
+            <a href="#">
+                  <i class="fa  fa-flask" ></i>
+                  &nbsp;&nbsp;Giới thiệu
+				  
+                </a>
+          <a href="#">
+                  <i class="fa  fa-flask" ></i>
+                  &nbsp;&nbsp;Hình ảnh
+				  
+                </a>
+          <a href="#">
+                  <i class="fa  fa-flask" ></i>
+                  &nbsp;&nbsp;Video
+				  
+                </a>
+          <a href="#">
+                  <i class="fa  fa-flask" ></i>
+                  &nbsp;&nbsp;Tin tức
+				  
+                </a>
+          
+          </li>
+
+            </ul>
+
+          </li>
+
+		 
+          <li class="dropdown navbar-profile">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style="color:white">
+
+
+              <i class="fa fa-user" style="color:white"></i><b style="color:white" class="nameuserdropdown">  </b> <i class="fa fa-caret-down"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+
+
+              <li>
+                <a href="change_password.html">
+                  <i class="fa fa-edit"></i>
+                  &nbsp;&nbsp;Đổi mật khẩu
+                </a>
+              </li>
+
+
+              <li class="divider"></li>
+
+              <li>
+                <a  onclick="logout();">
+                  <i class="fa fa-sign-out"></i>
+                  &nbsp;&nbsp;Đăng xuất
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+
+
+
+
+
+
+      </div> <!--/.navbar-collapse -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- /.navbar -->
+
+
+  <div class="container">
+
+    <div class="nsc is-hidden">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Danh mục -></b> <b>Nhà sơ chế</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+        <button class="btn btn-sm btn-default themnsc">
+          <i class="fa fa-plus"></i>Thêm
+        </button>
+        <button class="btn btn-sm btn-default themnscrefesh">
+          <i class="fa fa-refresh"></i>Làm mới
+        </button>
+      </div>
+      <div class="portlet-content table-responsive">
+
+        <input type="text"  class="form-control search_nhasoche" placeholder="Nhập thông tin cần tìm">
+      </div>
+
+
+
+
+      <div class="portlet-content table-responsive" style="zoom:80%">
+        <table id="user-signups" class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+			 <th>Username</th>
+            <th>Mã nhà sơ chế</th>
+            <th>Tên nhà sơ chế</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+         
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+            <th>Địa điểm sơ chế khác</th>
+            <th>Thông tin cơ sở sơ chế</th>
+			<th>TCCS</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+
+          <tbody class="listnhasoche">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagenhasoche">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+
+
+
+    </div>
+    <div class="ncc is-hidden">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Danh mục -></b> <b>Hộ sản xuất - Nhà cung cấp</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+
+
+
+        <button class="btn btn-sm btn-default themncc">
+          <i class="fa fa-plus"></i>Thêm
+        </button><button class="btn btn-sm btn-default themnccrefesh">
+        <i class="fa fa-refresh"></i>Làm mới
+      </button>
+      </div>
+      <div class="portlet-content table-responsive">
+
+        <div class="col-lg-10 col-sm-10">
+
+          <input type="text"  class="form-control search_nhacungcap" placeholder="Nhập thông tin cần tìm">
+        </div>
+
+
+      </div>
+      <div class="portlet-content table-responsive" style="zoom:70%">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+			<th>Username</th>
+            <th>Mã NCC</th>
+            <th>Tên nhà cung cấp</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+          
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+
+            <th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+
+          <tbody class="listnhacungcap">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagenhacc">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+
+
+
+    </div>
+    <div class="npp is-hidden">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Danh mục -></b> <b>Nhà phân phối</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+
+        <button class="btn btn-sm btn-default themnpp">
+          <i class="fa fa-plus"></i>Thêm
+        </button><button class="btn btn-sm btn-default themnccrefesh">
+        <i class="fa fa-refresh"></i>Làm mới
+      </button>
+      </div>
+
+      <div class="portlet-content table-responsive">
+
+        <div class="col-lg-10 col-sm-10">
+
+          <input type="text"  class="form-control search_nhaphanphoi" placeholder="Nhập thông tin cần tìm">
+        </div>
+
+
+      </div>
+      <div class="portlet-content table-responsive" style="zoom:80%">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+			  <th>Username</th>
+            <th>Mã nhà phân phối</th>
+            <th>Tên nhà phân phối</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+           
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+            <th>Kênh phân phối</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+
+          <tbody class="listnhaphanphoi">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagenhapp">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+    </div>
+
+
+
+    <div class="loaisp is-hidden">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Danh mục -></b> <b>Loại sản phẩm</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+
+
+        <button class="btn btn-sm btn-default themloaisp">
+          <i class="fa fa-plus"></i>Thêm
+        </button>
+        <button class="btn btn-sm btn-default themloaisprefesh">
+          <i class="fa fa-refresh"></i>Làm mới
+        </button>
+
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã Loại</th>
+            <th>Tên Loại(Vi)</th>
+			 <th>Tên Loại(En)</th>
+            <th>Ảnh</th>
+		
+            <th>Sửa</th>
+
+          </tr>
+          </thead>
+
+          <tbody class="listloaisp">
+
+          </tbody>
+
+        </table>
+
+		<div class="numberpage_loaisp">
+
+
+      </div>
+      </div> <!-- /.table-responsive -->
+      <div class="portlet-footer">
+
+
+      </div> <!-- /.portlet-footer -->
+
+    </div> <!-- /.portlet -->
+
+
+<div class="taikhoan is-hidden">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Danh mục -></b> <b>Tài khoản ngân hàng</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+
+
+        <button class="btn btn-sm btn-default themtk">
+          <i class="fa fa-plus"></i>Thêm
+        </button>
+        <button class="btn btn-sm btn-default themtkrefesh">
+          <i class="fa fa-refresh"></i>Làm mới
+        </button>
+
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Số TK</th>
+            <th>Tên TK</th>
+            <th>Ngân Hàng</th>
+			
+            <th>Xóa</th>
+
+          </tr>
+          </thead>
+
+          <tbody class="listtk">
+
+          </tbody>
+
+        </table>
+
+
+      </div> <!-- /.table-responsive -->
+      <div class="portlet-footer">
+
+
+      </div> <!-- /.portlet-footer -->
+
+    </div> <!-- /.portlet -->
+
+<div class="adddangkysp  is-hidden" style="zoom:100%">
+
+<button class="btn btn-round btn-info back_dangky">
+          << Trở lại
+        </button>
+<div class="modalshowdangkysanpham" role="dialog" data-editting="false" align="center">
+<div class="modal-dialog" style="width: 100%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+       
+        <h4 class="modal-title"> <b class="titledangkysanpham"> <i class="fa fa-plus"></i>&nbsp; Đăng ký mới sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+         <div class="form-group">
+
+            
+            <div class="col-lg-12 col-md-12">
+              <label class="control-label col-lg-4 col-md-4">Ảnh sản phẩm:</label>
+              <div class="col-lg-6 col-md-6">
+                <label for="image1">
+                  <input type="file" name="image1" id="image1" class="ip-img-user-change_anhdangky" style="display:none;"/>
+                  <img data-url="" class="imguserchange_anhdangky" style="border-radius: 50%;width: 90px;height: 90px; cursor: pointer" src="img/up.png"/>
+                </label>
+                <div class="link_dangkysp_anhsp">
+
+                </div>
+				
+              </div>
+
+            </div>
+			</div>
+            <div class="form-group">
+
+              <div class="col-lg-6 col-md-6">
+
+                <label class="control-label col-lg-4 col-md-4">QRCODE:</label>
+                <div class="col-lg-3 col-md-3" style=" padding-left: 15px; padding-right: 15px;">
+
+                  <input type="text" class="form-control dangkysp_qrcode" placeholder=""/>
+
+                </div>
+				<div class="col-lg-2 col-md-2" style=" padding-left: 15px; padding-right: 15px;">
+				
+
+				</div>
+				
+              </div>
+              <div class="col-lg-6 col-md-6">
+                 <label class="control-label col-lg-4 col-md-4">Mã Hộ SX-NCC:</label>
+                <div class="col-lg-3 col-md-3" style=" padding-left: 15px; padding-right: 15px;">
+
+                  <input type="text" class="form-control dangkysp_mancc" placeholder=""/>
+
+                </div>
+				<div class="col-lg-2 col-md-2" style=" padding-left: 15px; padding-right: 15px;">
+				<button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary dangkysp_themmoinhcungcap">Lấy dữ liệu</button>&nbsp;
+
+				</div>
+              </div>
+
+            </div>
+         
+			<div class="form-group">
+
+             
+              <div class="col-lg-6 col-md-6">
+			  <label class="control-label col-lg-4 col-md-4">Mã Nhà Sơ chế/Chế biến:</label>
+                <div class="col-lg-3 col-md-3" style=" padding-left: 15px; padding-right: 15px;">
+
+                  <input type="text" class="form-control dangkysp_mansc" placeholder=""/>
+
+                </div>
+				<div class="col-lg-4 col-md-4" style=" padding-left: 15px; padding-right: 15px;">
+				<button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary dangkysp_themmoinhsc">Lấy dữ liệu</button>&nbsp;
+
+				</div>
+               
+              </div>
+			<div class="col-lg-6 col-md-6">
+                 <label class="control-label col-lg-4 col-md-4">Mã phân phối:</label>
+                <div class="col-lg-3 col-md-3" style=" padding-left: 15px; padding-right: 15px;">
+
+                  <input type="text" class="form-control dangkysp_manpp" placeholder=""/>
+
+                </div>
+				<div class="col-lg-4 col-md-4" style=" padding-left: 15px; padding-right: 15px;">
+				<button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary dangkysp_themmoinhpp">Lấy dữ liệu</button>&nbsp;
+
+				</div>
+              </div>
+            </div>
+         
+
+          <div class="showhideloaisp  form-group">
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Loại sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <select class="form-control dangkysp_loaisp">
+               
+                </select>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <select class="form-control dangkysp_tensp">
+                 
+
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Màu sắc:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control dangkysp_mausac" placeholder=""/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+			 
+              <label class="control-label col-lg-4 col-md-4">Mã VietGAP:</label>
+              <div class="col-lg-3 col-md-3" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control dangkysp_mavietgap" placeholder=""/>
+
+             
+			  </div>
+			 
+			
+              <div class="col-lg-3 col-md-3" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control dangkysp_code" placeholder="code xuất khẩu"/>
+
+             
+			  </div>
+            </div>
+
+          </div>
+          
+			
+            <div class="showhidengaysx form-group">
+
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Ngày sản xuất: </label>
+                <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control dangky_ngaysx" />
+                  <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Hạn sử dụng: </label>
+                  <div class='input-group date datetimepicker'>
+                    <input type='text' class="form-control dangky_hansd" />
+                    <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                  </div>
+                </div>
+              </div>
+
+
+            
+            <div class="form-group">
+
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Danh mục thuốc BVTV sử dụng: </label>
+                <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+<button type="button" style="color:white; background-color: #528e5c;" class=" col-lg-2 col-md-2 btn btn-outline btn-primary dangkysp_thembvtv">Thêm</button>&nbsp;
+
+                 
+                  <table class="col-lg-10 col-md-10  table table-striped table-bordered table-checkable">
+                    <thead>
+                    <th>STT
+                    </th>
+                    <th>Ngày sử dụng</th>
+                    <th>Loại thuốc</th>
+                    <th>Liều lượng</th>
+					 <th>Xóa</th>
+                    </thead>
+                    <tbody class="dangkysp_bvtv">
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Danh mục phân bón sử dụng: </label>
+                <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+<button type="button" style="color:white; background-color: #528e5c;" class=" col-lg-2 col-md-2 btn btn-outline btn-primary dangkysp_themphanbon">Thêm</button>&nbsp;
+                 
+                  <table class="col-lg-10 col-md-10 table table-striped table-bordered table-checkable">
+                    <thead>
+                    <th>STT
+                    </th>
+                    <th>Ngày sử dụng</th>
+                    <th>Loại phân bón</th>
+                    <th>Liều lượng</th>
+					 <th>Xóa</th>
+                    </thead>
+                    <tbody class="dangkysp_phanbon">
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+
+
+
+            </div>
+           
+          <div class="form-group">
+
+             <div class="col-lg-12 col-md-12">
+                           
+                            TCCS: 
+                                
+                                <div class="adjoined-bottom">
+									<div class="grid-container">
+										<div class="grid-width-100">
+											<div id="editortccssanpham">
+									
+											</div>
+										</div>
+									</div>
+								
+								</div>
+                            
+                        </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-2" align="center"></div>
+
+          <div class="col-xs-4" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-dangkysp">Lưu</button>&nbsp;
+           
+          </div>
+		  <div class="col-xs-4" align="center">
+		   <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger back_dangky">Quay lại đăng ký</button>&nbsp;
+
+		  </div>
+		    <div class="col-xs-2" align="center">
+			
+			</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="thongke is-hidden" style="zoom:80%">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Thống kê -></b> <b>Theo sản phẩm</b></h4></span>
+      </div>
+	  <div class="row">
+	  <div class="col-lg-2 col-md-2">
+                Chọn trạng thái đơn hàng
+                </div>
+	  <div class="col-lg-3 col-md-3">
+	  <select class="form-control cb_trangthaitk">
+	<option value="0">Chưa xử lý</option>
+	<option value="1">Đã xác nhận</option>
+	<option value="2">Đã giao hàng</option>
+	
+	</select>
+	</div>
+	</div>
+      <div class="row">
+
+ 
+        <div class="col-lg-5 col-md-5">
+                <label class="control-label col-lg-4 col-md-4">Từ ngày: </label>
+                <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control tkloai_tungay" />
+                  <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-5">
+                <label class="control-label col-lg-4 col-md-4">Đến ngày: </label>
+                  <div class='input-group date datetimepicker'>
+                    <input type='text' class="form-control tkloai_denngay" />
+                    <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                  </div>
+                </div>
+<div class="col-lg-2 col-md-2">
+                <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn_tim_tk">Tìm</button>
+                </div>
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+           
+			<th>Sản phẩm </th>
+            <th>Tổng số lượng bán</th>
+           
+			  <th>Tổng thành tiền</th>
+          
+
+          </tr>
+          </thead>
+
+          <tbody class="listthongke">
+
+          </tbody>
+
+        </table>
+
+
+      </div> <!-- /.table-responsive -->
+	  <div class="form-group sumdoanhthu"></div>
+	  <div class="form-group sumddh"></div>
+	   <div class="form-group pageddhtk"></div>
+      <div class="portlet-footer">
+
+
+      </div> <!-- /.portlet-footer -->
+
+    </div> <!-- /.portlet -->
+
+    <div class="sanpham is-hidden">
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Danh mục -></b> <b>Sản Phẩm</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+        <button class="btn btn-sm btn-default themsp">
+          <i class="fa fa-plus"></i>Thêm
+        </button>
+        <button class="btn btn-sm btn-default themsprefesh">
+          <i class="fa fa-refresh"></i>Làm mới
+        </button>
+      </div>
+      <div class="portlet-content table-responsive">
+        <div class="col-lg-2 col-sm-2">
+          Chọn loại sản phẩm
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <select class="form-control cbloaisp">
+            <option value="all">Tất cả</option>
+          </select>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+
+          <input type="text"  class="form-control search_sanpham" placeholder="Nhập thông tin cần tìm">
+        </div>
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Id sản phẩm</th>
+            <th>Mã sản phẩm</th>
+
+            <th>Tên sản phẩm(Vi)</th>
+            <th>Tên sản phẩm(En)</th>
+           
+            <th>Loại SP(Vi)</th>
+			<th>Loại SP(En)</th>
+			  <th>Giá</th>
+			  <th>Giá chuỗi</th>
+			    <th>Giá chuỗi(Vi)</th>
+			   <th>Ảnh Sản phẩm</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+
+          <tbody class="listsanpham">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagesanpham">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+
+
+
+    </div>
+<!-- form xac nhan don hang -->
+
+    <div class="confirmddh is-hidden">
+	<div class="col-lg-12 col-md-12">
+	 
+             </div>
+      <div class="form-group" style="zoom:80%">
+ 
+
+            <div class="col-lg-12 col-md-12">
+              <div class="portlet-content table-responsive">
+			  <select class="form-control cb_trangthai">
+	<option value="0">Chưa xử lý</option>
+	<option value="1">Đã xác nhận</option>
+	<option value="2">Đã giao hàng</option>
+	
+	</select>
+	<input type="text" class="form-control search_kh_dh" placeholder="Nhập ID đơn hàng hoặc số điện thoại" />
+        <table  class="table  table-responsive showctsp">
+          <thead>
+          <tr bgcolor="#8B0016" style="color:#E6F1D8">
+            <th>STT</th>
+			<th>IDĐH</th>
+			
+			<th>Ngày đặt</th>
+            <th>Ngày giao</th>
+			<th>Tên KH</th>
+			<th>Điện thoại</th>
+			<th>Email</th>
+			<th>Địa chỉ nhận hàng</th>
+				<th>Hình thức thanh toán</th>
+				<th>Phí Ship</th>
+            <th>Trạng thái</th>
+			  <th colspan="2" align="center">Thao tác</th>
+ 
+          </tr>
+          </thead>
+
+          <tbody class="listhistorydh">
+
+          </tbody>
+
+        </table>
+
+      
+	  
+            </div>
+			<div class="form-group numberpageddhshop">
+
+        </div>
+		</div>
+          </div>
+
+    </div>
+
+
+<!-- -->
+<div class="listworks is-hidden">
+	<div class="col-lg-12 col-md-12">
+	 <button type="button" class="btn btn-round btn-info btn_back_dk"><< Quay lại</button>
+             </div>
+		  
+           
+      <div class="form-group">
+ 
+
+            <div class="col-lg-12 col-md-12">
+              <div class="portlet-content table-responsive">
+			  <select class="form-control cb_listwork">
+	
+	
+			</select>
+			</div>
+	 <div class="col-lg-12 col-md-12" align="center" >
+              <label class="control-label col-lg-4 col-md-4">Tải ảnh lên :</label>
+              <div class="col-lg-8 col-md-8">
+                <label for="image3">
+                  <input type="file" name="image3" id="image3" class="ip-img-user-change_anhwork" style="display:none;"/>
+                  <img data-url="" class="imguserchange_anhwork" style="border-radius: 50%;width: 90px;height: 90px; cursor: pointer" src="img/up.png"/>
+                </label>
+                
+				
+              </div>
+
+            </div>
+
+      
+	  
+            </div>
+			 <div class="col-lg-12 col-md-12 list_works">
+			 
+              <div class="portlet-content table-responsive link_work_image">
+			   
+			  </div>
+	
+
+      
+	  
+            </div>
+			<div class="col-lg-12 col-md-12 numberpageworks">
+			</div>
+			
+		</div>
+       
+
+    </div>
+
+
+<!-- -->
+    <!-- dang ky san pham -->
+    <div class="dangkysp is-hidden">
+
+      <div class="portlet-content table-responsive">
+        <span style="font-family:'Times New Roman' "><h4><i class="fa fa-cogs"></i>&nbsp;<b>Đăng Ký Sản Phẩm</b></h4></span>
+      </div>
+      <div class="portlet-content table-responsive">
+
+
+        <button class="btn btn-sm btn-default themdangkysp">
+          <i class="fa fa-plus"></i>Thêm
+        </button><button class="btn btn-sm btn-default lammoidangky">
+        <i class="fa fa-refresh"></i>Làm mới
+      </button>
+      </div>
+      <div class="portlet-content table-responsive">
+        <div class="col-lg-2 col-sm-2">
+          Chọn loại sản phẩm
+        </div>
+<div class="col-lg-2 col-sm-2">
+         <select class="form-control cb_loaispdangky">
+			</select>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+
+          <input type="text"  class="form-control search_dangkysp" placeholder="Nhập mã barcode">
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+      <div class="portlet-content table-responsive" style="zoom:80%">
+        <table  class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Barcode</th>
+			<th>ImgBarcode</th>
+            <th>Tên sản phẩm</th>
+			 <th>TCCS</th>
+            <th>VietGap</th>
+            <th>Code xuất khẩu</th>
+            <th>Ngày sản xuất</th>
+            <th>Hạn sử dụng</th>
+            <th>Thuốc BVTV</th>
+            <th>Phân bón</th>
+            <th>Tên NCC</th>
+            
+            <th>Nhà sơ chế/ chế biến</th>
+            <th>Nhà Phân phối</th>
+           <th>Xem công việc</th>
+<th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+
+          <tbody class="listdangkysp">
+
+          </tbody>
+
+        </table>
+
+      </div> <!-- /.table-responsive -->
+      <div class="portlet-footer">
+
+
+      </div> <!-- /.portlet-footer -->
+      <div class="form-group numberpagedangkysp">
+
+      </div> <!-- /.portlet -->
+
+
+
+
+    </div> <!-- /.row -->
+
+  </div>
+
+</div>
+<!--modal them sua nha so che-->
+<div class="modal fade modalshownsc" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlensc"> <i class="fa fa-plus"></i>&nbsp;Tạo mới nhà sơ chế / chế biến</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Username:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_username" placeholder="Nhập username"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Password:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="password" class="form-control nsc_password" placeholder="Nhập password"/>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+<!--
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Mã nhà sơ chế:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_mansc" placeholder="Nhập mã nhà sơ chế"/>
+
+              </div>
+            </div>
+			-->
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên nhà sơ chế:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_name" placeholder="Nhập tên"/>
+
+              </div>
+            </div>
+<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Mã số thuế:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_mst" placeholder="Nhập mã số thuế"/>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Địa chỉ : </label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                <input type="text"  class="form-control nsc_addressnsc" style="display: inline-block">Lat(Kinh độ(
+                 <input type="number"  class="form-control nsc_lat" style="display: inline-block" value='0'>Lng(Vĩ Độ)
+                 <input type="number"  class="form-control nsc_lng" style="display: inline-block" value='0'>
+                
+
+              </div>
+            </div>
+
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số điện thoại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_sdt" placeholder="Nhập số điện thoại"/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+           
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Email:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_email" placeholder="Nhập email"/>
+
+              </div>
+            </div>
+<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Website:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_website" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+            
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số fax:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_sofax" placeholder=""/>
+
+              </div>
+            </div>
+<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Facebook:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_facebook" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Thông tin sơ chế/chế biến: </label>
+                <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+<button type="button" style="color:white; background-color: #528e5c;" class=" col-lg-2 col-md-2 btn btn-outline btn-primary nhasc_themthongtinsc">Thêm</button>&nbsp;
+
+                 
+                  <table class="col-lg-10 col-md-10  table table-striped table-bordered table-checkable">
+                    <thead>
+                    <th>STT
+                    </th>
+                    <th>Tên</th>
+                   
+					 <th>Xóa</th>
+                    </thead>
+                    <tbody class="nhasc_thongtinsoche">
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Địa điểm sơ chế: </label>
+                <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+<button type="button" style="color:white; background-color: #528e5c;" class=" col-lg-2 col-md-2 btn btn-outline btn-primary nhasc_themdiadiemsc">Thêm</button>&nbsp;
+
+                 
+                  <table class="col-lg-10 col-md-10  table table-striped table-bordered table-checkable">
+                    <thead>
+                    <th>STT
+                    </th>
+                    <th>Tên</th>
+                     <th>Địa chỉ</th>
+					   <th>Số điện thoại</th>
+					     <th>Email</th>
+					 <th>Xóa</th>
+                    </thead>
+                    <tbody class="nhasc_diadiemsoche">
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+			
+
+
+            </div>
+<div class="form-group">
+
+              
+              <div class="col-lg-12 col-md-12">
+                           
+                            TCCS: 
+                                
+                                <div class="adjoined-bottom">
+									<div class="grid-container">
+										<div class="grid-width-100">
+											<div id="editortccssoche">
+									
+											</div>
+										</div>
+									</div>
+								
+								</div>
+                            
+                        </div>
+			
+
+
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-nsc">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal them sua nha cung cap-->
+<div class="modal fade modalshowncc" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlencc"> <i class="fa fa-plus"></i>&nbsp;Tạo mới nhà cung cấp</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Username:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_username" placeholder="Nhập username"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Password:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="password" class="form-control ncc_password" placeholder="Nhập password" value='12345678@'/>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên nhà cung cấp:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_tenncc" placeholder="Nhập tên"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Mã số thuế:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_mst" placeholder="Nhập mã số thuế"/>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Địa chỉ : </label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                <input type="text" class="form-control ncc_addressncc" style="display: inline-block">Lat(Kinh độ)
+				 <input type="number" class="form-control ncc_lat" style="display: inline-block" value='0' >Lng(Vĩ độ)
+				 <input type="number" class="form-control ncc_lng" style="display: inline-block" value='0'>
+               <!-- <input type="button" class="form-control btnmap_addressncc" style="display: inline-block" value="Chọn địa chỉ">-->
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số điện thoại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_sdt" placeholder="Nhập số điện thoại"/>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Email:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_email" placeholder="Nhập email"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Website:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_website" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số fax:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_sofax" placeholder=""/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Facebook:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control ncc_facebook" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+          <!--
+                    <div class="form-group">
+
+
+                      <div class="col-lg-6 col-md-6">
+                        <label class="control-label col-lg-4 col-md-4">Địa điểm:</label>
+                        <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                          <input type="text" class="form-control ncc_diadiem" placeholder=""/>
+
+                        </div>
+                      </div>
+                    </div>
+
+          -->
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-ncc">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal them sua nha phan phoi-->
+<div class="modal fade modalshownpp" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlenpp"><i class="fa fa-plus"></i>&nbsp; Tạo mới nhà phân phối</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Username:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_username" placeholder="Nhập username"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Password:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="password" class="form-control npp_password" placeholder="Nhập password"/>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+            <!--
+                        <div class="col-lg-6 col-md-6">
+                          <label class="control-label col-lg-4 col-md-4">Mã nhà phân phối:</label>
+                          <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                            <input type="text" class="form-control npp_manpp" placeholder="Nhập mã nhà phân phối"/>
+
+                          </div>
+                        </div>
+                        -->
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên nhà phân phối:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_tennpp" placeholder="Nhập tên"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Mã số thuế:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_mst" placeholder="Nhập mã số thuế"/>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Địa chỉ : </label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                <input type="text"  class="form-control npp_addressnpp" style="display: inline-block">Lat(Kinh độ)
+				<input type="number"  class="form-control npp_lat" style="display: inline-block" value='0'>Lng(Vĩ độ)
+				<input type="number"  class="form-control npp_lng" style="display: inline-block" value='0'>
+        <!--        <input type="button" class="form-control btnchucvu_addressnpp" style="display: inline-block" value="Chọn địa chỉ"> -->
+
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số điện thoại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_sdt" placeholder="Nhập số điện thoại"/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Email:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_email" placeholder="Nhập email"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Website:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_website" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số fax:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_sofax" placeholder=""/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Facebook:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_facebook" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+
+              <div class="col-lg-12 col-md-12">
+                <label class="control-label col-lg-4 col-md-4">Địa điểm phân phối sản phẩm: </label>
+                <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+<button type="button" style="color:white; background-color: #528e5c;" class=" col-lg-2 col-md-2 btn btn-outline btn-primary nhapp_themdiadiempp">Thêm</button>&nbsp;
+
+                 
+                  <table class="col-lg-10 col-md-10  table table-striped table-bordered table-checkable">
+                    <thead>
+                    <th>STT
+                    </th>
+                    <th>Tên</th>
+                   <th>Địa chỉ</th>
+				   <th>Điện thoại</th>
+				   <th>Email</th>
+				   <th>Kênh phân phối</th>
+					 <th>Xóa</th>
+                    </thead>
+                    <tbody class="nhapp_diadiempp">
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+             
+
+
+            </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-npp">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal them sua loai san pham-->
+<div class="modal fade modalshowloaisp" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleloaisp"><i class="fa fa-plus"></i>&nbsp; Tạo mới loại sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Mã loại sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control loaisp_maloai" placeholder="Nhập mã loại sản phẩm"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên loại sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control loaisp_tenloai" placeholder="Nhập tên loại sản phẩm"/>
+
+              </div>
+            </div>
+			</div>
+			 <div class="form-group">
+				<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên loại sản phẩm (English):</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control loaisp_tenloai_en" placeholder="Name of type product"/>
+
+              </div>
+            </div>
+         
+				
+
+            <div class="col-lg-6 col-md-6">
+              <label for="image2">
+                <input type="file" name="image2" id="image2" class="ip-img-user-change_loaisp" style="display:none;"/>
+                <img data-url="" class="imguserchange_loaisp" style="border-radius: 50%;width: 90px;height: 90px; cursor: pointer" src="img/up.png"/>
+              </label>
+              <div class="linkloaisanpham">
+
+              </div>
+            </div>
+ </div>
+        </form>
+     
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+
+
+          <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-loaisp">Lưu</button>&nbsp;
+          <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- modal them tai khoan ngan hang-->
+<!--modal them sua loai san pham-->
+<div class="modal fade modalshowtaikhoan" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleloaisp"><i class="fa fa-plus"></i>&nbsp; Tạo mới tài khoản</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Số Tài Khoản:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control tk_so" placeholder="Số tài khoản"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên Tài Khoản:</label>
+              <div class="col-lg-8 col-md-8" style=" paddingtk_tenleft: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control tk_ten" placeholder="Tên tài khoản"/>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Ngân hàng:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control tk_nh" placeholder="Tên ngân hàng"/>
+
+              </div>
+            </div>
+           
+
+          </div>
+        </form>
+     
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+
+
+          <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn_save_tk">Lưu</button>&nbsp;
+          <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--modal them sua san pham-->
+<div class="modal fade modalshowsanpham" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlesanpham"> <i class="fa fa-plus"></i>&nbsp; Tạo mới sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Mã sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control sp_masp" placeholder="Nhập mã sản phẩm"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control sp_tensp" placeholder="Tên sản phẩm"/>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Loại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                <select class="form-control cb_loai">
+
+                </select>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Kiểu:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                <select class="form-control cb_kieu">
+
+                </select>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên loại sản phẩm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                <select class="form-control cb_tenloaisp">
+
+                </select>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+			<label class="control-label col-lg-4 col-md-4">Giá:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+               <input type="text" class="form-control sp_gia"/>
+            </div>
+          </div>
+		  </div>
+	<div class="form-group">
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Giá chuỗi:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                  <input type="text" class="form-control sp_giachuoi"/>
+
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Đơn vị tính:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+                 
+<select class="form-control cb_dvtinhsp">
+
+                </select>
+              </div>
+            </div>
+		  </div>
+		  <div class="form-group">
+
+            
+            <div class="col-lg-6 col-md-6">
+              <label for="image">
+                <input type="file" name="image" id="image" class="ip-img-user-change_sp" style="display:none;"/>
+                <img data-url="" class="imguserchange_sp" style="border-radius: 50%;width: 90px;height: 90px; cursor: pointer" src="img/up.png"/>
+              </label>
+              <div class="linksanpham">
+
+              </div>
+            </div>
+		  </div>
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+
+          <div class="col-xs-12" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-sanpham">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- modal lay map cua nha so che-->
+<div class="modal fade modalshowmappicker" role="dialog" data-editting="false">
+  <div class="modal-dialog ui-front" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b> Chọn địa chỉ</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          <input id="complete" class="pac-container" placeholder="Nhập địa chỉ"
+                 type="text">
+          <div id="map2"></div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-xs-4" align="center">
+          <button type="button" style="color:white" class="btn btn-outline btn-primary btn-print-info-save-nhapkhospss">OK</button>
+          <!--<button type="button" style="color:white" class="btn btn-outline btn-dangerss">Đóng</button>-->
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--modal show map nha cung cap-->
+<div class="modal fade modalshowtccs" role="dialog" data-editting="false">
+  <div class="modal-dialog" style="width: 100%;height:100%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"><b class="titletccs"> </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          <div class="addtieuchuan"></div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--modal show map nha cung cap-->
+<div class="modal fade modalshowmapncc" role="dialog" data-editting="false">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"><b> </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          <div id="mapncc"></div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--modal show map nha phan phoi-->
+<div class="modal fade modalshowmapnpp" role="dialog" data-editting="false">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"><b> </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          <div id="mapnpp"></div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--modal show map nha so che-->
+<div class="modal fade modalshowmapnsc" role="dialog" data-editting="false">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"><b> </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          <div id="mapnsc"></div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--modal show map nha so che (diachi)-->
+<div class="modal fade modalshowmapdiachinsc" role="dialog" data-editting="false">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"><b>Map </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:80%">
+          Nhập địa chỉ:<input id="pac-input" class="controls" type="text" placeholder="Nhập địa chỉ">
+
+          <div id="map"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade modalshowprogess" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 70%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+
+        <h4 class="modal-title"> &nbsp;<b class="tientrinhxuly"> </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-- -->
+<div class="modal fade modalapgia" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 30%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+
+        <h4 class="modal-title"> &nbsp;<b >Áp giá mới cho sản phẩm </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+	
+		<form class="form-horizontal" style="zoom:80%">
+      <input  class="form-control apgianew" type="number" placeholder="Nhập giá">
+
+        
+        </form>
+		 <div class="modal-footer " style="clear: both;">
+        <div class="col-xs-12" align="center">
+          <button type="button" style="color:white" class="btn btn-outline btn-primary btn_apgianewsp">Áp</button>
+          <button type="button" style="color:white" class="btn btn-outline btn-danger">Đóng</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modalcapnhatgio" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 30%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+
+        <h4 class="modal-title"> &nbsp;<b >Áp thời gian ship hàng cho sản phẩm </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+	
+		<form class="form-horizontal" style="zoom:80%">
+     <div class="col-lg-12 col-md-1">
+                <label class="control-label col-lg-4 col-md-4">Ngày giờ ship: </label>
+                <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control capnhat_ngaygiodat" />
+                  <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                </div>
+              </div>
+        
+        </form>
+		 <div class="modal-footer " style="clear: both;">
+        <div class="col-xs-12" align="center">
+          <button type="button" style="color:white" class="btn btn-outline btn-primary btn_apcapnhatgioship">Thay đổi</button>
+          <button type="button" style="color:white" class="btn btn-outline btn-danger">Đóng</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -->
+<div class="modal fade modalapship" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 30%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+
+        <h4 class="modal-title"> &nbsp;<b >Áp phí ship cho sản phẩm </b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+	
+		<form class="form-horizontal" style="zoom:80%">
+      <input  class="form-control apphipnew" type="number" placeholder="Nhập giá ship">
+
+        
+        </form>
+		 <div class="modal-footer " style="clear: both;">
+        <div class="col-xs-12" align="center">
+          <button type="button" style="color:white" class="btn btn-outline btn-primary btn_apphinewsp">Áp</button>
+          <button type="button" style="color:white" class="btn btn-outline btn-danger">Đóng</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal them thuoc bvtv-->
+<div class="modal fade modalshowthuocbvtv" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlenpp"><i class="fa fa-plus"></i>&nbsp; Thêm thuốc bảo vệ thực vật</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+
+          <div class="form-group">
+
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Ngày sử dụng : </label>
+              <div class='input-group date datetimepicker'>
+                <input type='text' class="form-control bvtv_ngaysudung" />
+                <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Loại thuốc:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control bvtv_loaithuoc" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Liều lượng:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control bvtv_ll" placeholder=""/>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-bvtv">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal them phan bon-->
+<div class="modal fade modalshowphanbon" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlenpp"><i class="fa fa-plus"></i>&nbsp; Thêm phân bón</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+
+          <div class="form-group">
+
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Ngày sử dụng : </label>
+              <div class='input-group date datetimepicker'>
+                <input type='text' class="form-control phanbon_ngaysudung" />
+                <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Loại phân bón:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control phanbon_loai" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Liều lượng:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control phanbon_ll" placeholder=""/>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-phanbon">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal them xem thong tin chung -->
+<div class="modal fade modalshowinforcommon" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 60%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleinfo"><i class="fa fa-plus"></i>&nbsp; Xem thông tin</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		<div class="showinfocommon">
+		</div>
+          
+
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- modal them xem thong tin chung -->
+<div class="modal fade modalshowinforlistnpp" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 60%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class=""><i class="fa fa-plus"></i>&nbsp; Xem thông tin nhà phân phối và cập nhật</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		
+		<div class="portlet-content table-responsive nhaphanphoi">' +
+
+            <table class="table table-striped table-bordered table-checkable"><thead><tr bgColor="#FF3333" style="color:white">
+
+            <th>STT</th>
+            <th>Mã nhà phân phối</th>
+            <th>Tên nhà phân phối</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+            <th>Website</th>
+ <th>Xóa</th>
+            </tr>
+            </thead>
+
+            <tbody class="listnhapp"></tbody></table></div>
+		
+          
+
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- -->
+<!-- modal them xem thong tin chung nha cung cap -->
+<div class="modal fade modalshowinforncc" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleinfo"><i class="fa fa-info-circle"></i>&nbsp;Chọn nhà cung cấp sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		<div class="portlet-content table-responsive">
+
+        <div class="col-lg-10 col-sm-10">
+
+          <input type="text"  class="form-control search_dangkynhacungcap" placeholder="Nhập thông tin cần tìm">
+        </div>
+
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã NCC</th>
+            <th>Tên nhà cung cấp</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+            
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+
+            <th>Chọn</th>
+           
+          </tr>
+          </thead>
+
+          <tbody class="listsearchnhacungcap">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagesearchnhacc">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- -->
+<!-- modal them xem thong tin chung nha cung cap -->
+<div class="modal fade modalshowinfornsc" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleinfo"><i class="fa fa-info-circle"></i>&nbsp;Chọn nhà sơ chế hoặc chế biến sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		<div class="portlet-content table-responsive">
+
+        <div class="col-lg-10 col-sm-10">
+
+          <input type="text"  class="form-control search_dangkynsc" placeholder="Nhập thông tin cần tìm">
+        </div>
+
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã nhà sơ chế</th>
+            <th>Tên nhà sơ chế</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+          
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+            
+            
+          </tr>
+          </thead>
+
+          <tbody class="listsearchnhasc">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagesearchnhasc">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!--modal them thuoc bvtv-->
+<div class="modal fade modalshowcongnghe" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlenpp"><i class="fa fa-plus"></i>&nbsp; Thêm công nghệ/chứng chỉ</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+
+          
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_congnghe_ten" placeholder=""/>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-congnghe_soche">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modalshowdiadiemsoche" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlediadiemsc"><i class="fa fa-plus"></i>&nbsp; Thêm địa điểm sơ chế</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+
+          
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên địa điểm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_diadiem_ten" placeholder=""/>
+
+              </div>
+            </div>
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Địa chỉ:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_diadiem_dc" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+
+<div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Điện thoại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_diadiem_sdt" placeholder=""/>
+
+              </div>
+            </div>
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Email:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control nsc_diadiem_email" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-diadiem_soche">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -->
+<div class="modal fade modalshowdiadiemphanphoi" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlediadiemnpp"><i class="fa fa-plus"></i>&nbsp; Thêm địa điểm phân phối</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+
+          
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên địa điểm:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_diadiem_ten" placeholder=""/>
+
+              </div>
+            </div>
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Địa chỉ:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_diadiem_dc" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+
+<div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Điện thoại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_diadiem_sdt" placeholder=""/>
+
+              </div>
+            </div>
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Email:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_diadiem_email" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+<div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Kênh phân phối:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control npp_diadiem_kenhphanphoi" placeholder=""/>
+
+              </div>
+            </div>
+			
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-save-diadiem_phanphoi">Lưu</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal them xem thong tin chung nha cung cap -->
+<div class="modal fade modalshowinfornpp" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleinfo"><i class="fa fa-info-circle"></i>&nbsp;Chọn nhà phân phối</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		<div class="portlet-content table-responsive">
+
+        <div class="col-lg-10 col-sm-10">
+
+          <input type="text"  class="form-control search_dangkynpp" placeholder="Nhập thông tin cần tìm">
+        </div>
+
+
+      </div>
+      <div class="portlet-content table-responsive">
+        <table class="table table-striped table-bordered table-checkable">
+          <thead>
+         <tr>
+            <th>STT</th>
+            <th>Mã nhà phân phối</th>
+            <th>Tên nhà phân phối</th>
+            <th>Mã số thuế</th>
+            <th>Địa chỉ</th>
+            
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Số fax</th>
+            <th>Facebook</th>
+           
+            
+          </tr>
+          </thead>
+
+          <tbody class="listsearchnhapp">
+
+          </tbody>
+
+        </table>
+        <div class="form-group numberpagesearchnhapp">
+
+        </div> <!-- /.table-responsive -->
+        <div class="portlet-footer">
+
+
+        </div> <!-- /.portlet-footer -->
+
+      </div> <!-- /.portlet -->
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- -->
+<!-- modal them xem thong tin chung -->
+<div class="modal fade modalshowdetailinfornhasoche" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleinfo"><i class="fa fa-plus"></i>&nbsp; Chọn nhà sơ chế cho sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		<div class="showdetailfornhasoche">
+		 <div class="portlet-content table-responsive">
+
+            <table class="table table-striped table-bordered table-checkable"><thead><tr>
+
+            <th>STT</th>
+            <th>Công nghệ</th>
+            <th>Mã nhà sơ chế/chế biến</th>
+            <th>Tên nhà sơ chế/chế biến</th>
+            <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+			 <th>Chọn</th>
+            </tr>
+            </thead>
+
+            <tbody class="listdetailsoche">
+
+        </tbody>
+		</table>
+		</div>
+		</div>
+		<button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-chon-dangkychonnhasoche">Chọn</button>
+          
+<button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- -->
+<!-- -->
+<div class="modal fade modalshowxacnhandonhangadmin" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titlediadiemnpp"><i class="fa fa-shopping-cart"></i>&nbsp; Xác nhận đơn hàng</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+
+          
+          <div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Tên khách hàng:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control xacnhan_ten" placeholder=""/>
+
+              </div>
+            </div>
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Địa chỉ nhận hàng:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control xacnhan_diachi" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+
+		<div class="form-group">
+
+
+            <div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Điện thoại:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control xacnhan_dt" placeholder=""/>
+
+              </div>
+            </div>
+			<div class="col-lg-6 col-md-6">
+              <label class="control-label col-lg-4 col-md-4">Email:</label>
+              <div class="col-lg-8 col-md-8" style=" padding-left: 15px; padding-right: 15px;">
+
+                <input type="text" class="form-control xacnhan_email" placeholder=""/>
+
+              </div>
+            </div>
+          </div>
+		 <div class="form-group">
+
+
+            <div class="showhidengaysx form-group">
+
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Ngày giờ đặt: </label>
+                <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control xacnhan_ngaydat" />
+                  <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <label class="control-label col-lg-4 col-md-4">Ngày giao: </label>
+                  <div class='input-group date datetimepicker'>
+                    <input type='text' class="form-control xacnhan_ngaygiao" />
+                    <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+		<div class="form-group">
+
+
+            <div class="col-lg-12 col-md-12">
+              <div class="portlet-content">
+        <table  class="table table-striped table-bordered table-checkable table-responsive">
+          <thead>
+          <tr >
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+			<th>Số lượng</th>
+            <th>Giá</th>
+			 <th>Đơn vị tính</th>
+            
+            <th>Thành tiền</th>
+             <th>Xóa</th>
+           
+
+          </tr>
+          </thead>
+
+          <tbody class="listshowcart">
+
+          </tbody>
+ <tr>
+            <th></th><th></th><th></th><th colspan="2">Tổng tiền thanh toán</th><th colspan="2" class="tongtienthanhtoan"></th>
+            
+           
+
+          </tr>
+        </table>
+
+      </div>
+            </div>
+			
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer " style="clear: both;">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-xs-3" align="center"></div>
+
+          <div class="col-xs-9" align="center">
+            <button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-save-xacnhan">Xác nhận</button>&nbsp;
+            <button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal them xem thong tin chung -->
+<div class="modal fade modalshowdetailinfornhaphanphoi" role="dialog" data-editting="false" align="center">
+  <div class="modal-dialog" style="width: 80%">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" align="left">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title"> <b class="titleinfo"><i class="fa fa-plus"></i>&nbsp; Chọn nhà phân phối cho sản phẩm</b>&nbsp;&nbsp;&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" style="zoom:70%">
+		<div class="showdetailfornhasoche">
+		 <div class="portlet-content table-responsive">
+
+            <table class="table table-striped table-bordered table-checkable"><thead><tr>
+
+            <th>STT</th>
+           
+            
+            <th>Tên nhà phân phối</th>
+            <th>Địa chỉ</th>
+			<th>Trang điện tử</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+			 <th>Chọn</th>
+            </tr>
+            </thead>
+
+            <tbody class="listdetailphanphoi">
+
+        </tbody>
+		</table>
+		</div>
+		</div>
+		<button type="button" style="color:white; background-color: #528e5c;" class="btn btn-outline btn-primary btn-print-info-chon-dangkychonnhaphanphoi">Chọn</button>
+          
+<button type="button" style="background-color: red; color: white" class="btn btn-outline btn-danger" data-dismiss="modal">Đóng</button>
+
+
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- -->
+</div>
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-3">
+
+        <h4>Về chúng tôi</h4>
+
+       
+        Phần mềm phát triển do công ty TNHH MTV Phần Mềm Di Động Viên Nhã.
+
+
+        <p>&copy; 2019 </p>
+
+      </div> <!-- /.col -->
+
+      <div class="col-sm-3">
+
+        <h4>Hỗ trợ</h4>
+
+        <br>
+
+        <ul class="icons-list">
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="https://accounts.google.com">Email:viennhagroup@gmail.com</a>
+          </li>
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="tel:0169833680">ĐT:0939191028</a>
+          </li>
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="https://viennhagroup.com">Webiste:https://viennhagroup.com</a>
+          </li>
+
+        </ul>
+
+      </div> <!-- /.col -->
+
+      <div class="col-sm-3">
+
+        <h4>Chính sách và điều khoản sử dụng</h4>
+
+        <br>
+
+        <ul class="icons-list">
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="javascript:;">Bản quyền</a>
+          </li>
+          </li>
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="javascript:;">Điều khoản sử dụng</a>
+          </li>
+
+        </ul>
+
+      </div> <!-- /.col -->
+
+      <div class="col-sm-3">
+
+        <h4>Kết nối Mạng xã hội</h4>
+
+        <br>
+
+        <ul class="icons-list">
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="javascript:;">Facebook</a>
+          </li>
+          <li>
+            <i class="fa fa-angle-double-right icon-li"></i>
+            <a href="javascript:;">Zalo </a>
+          </li>
+          <li>
+            
+
+        </ul>
+
+      </div> <!-- /.col -->
+
+    </div> <!-- /.row -->
+
+  </div> <!-- /.container -->
+
+</footer>
+
+<script src="js/libs/jquery-1.10.1.min.js"></script>
+<script src="js/libs/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="js/script.js"></script>-->
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="./js/libs/excanvas.compiled.js"></script>
+<![endif]-->
+
+<!-- Plugin JS -->
+<script src="js/plugins/icheck/jquery.icheck.js"></script>
+<script src="js/plugins/select2/select2.js"></script>
+<script src="js/libs/raphael-2.1.2.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="js/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script src="js/plugins/fullcalendar/fullcalendar.js"></script>
+
+<!-- App JS -->
+<script src="js/target-admin.js"></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU0HNM5ae3lN-1q_LIk3khMEp04ZapnWg&libraries=places"
+        async defer></script>
+
+<!--script for this page only-->
+<script src="js/bootbox.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="public/javascript/JsBarcode.code128.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="public/javascript/main.js"></script>
+<script src="public/javascript/nhasoche.js"></script>
+<script src="public/javascript/nhaphanphoi.js"></script>
+<script src="public/javascript/nhasanxuat.js"></script>
+<script src="public/javascript/dangkysanpham.js"></script>
+<script src="public/javascript/loaisanpham.js"></script>
+<script src="public/javascript/sanpham.js"></script>
+<script src="public/javascript/xacnhanadmin.js"></script>
+<script src="public/javascript/nganhang.js"></script>
+<script src="public/javascript/thongke.js"></script>
+
+<script>
+    
+	
+    $(function () {
+        $('.datepicker').datetimepicker({ format:'DD-MM-YYYY',ignoreReadonly: true,widgetPositioning:{
+            horizontal: 'auto',
+            vertical: 'bottom'
+        }});
+        $('.datetimepicker').datetimepicker({ format:'DD-MM-YYYY HH:mm:ss',ignoreReadonly: true,widgetPositioning:{
+            horizontal: 'auto',
+            vertical: 'bottom'
+        }});
+    });
+
+
+</script>
+<script>
+
+
+
+    if(localStorage.getItem("usernameNS")!=null){
+        $(".nameuserdropdown").html("&nbsp;&nbsp;"+localStorage.getItem("usernameNS"));
+		var oj=JSON.parse(localStorage.getItem("userNS"));
+		if(oj!=null){
+		if(oj.permission==4){
+			//    window.location.href = "shop.html";
+			   }
+		}else{
+		//window.location.href = "shop.html";
+		}
+	}
+    else{
+	
+	var oj=JSON.parse(localStorage.getItem("userNS"));
+	if(oj==null){
+	// window.location.href = "shop.html";
+	}else{
+        window.location.href = "login.html";
+		}
+    }
+
+</script>
+<script src="ckeditor/ckeditor.js"></script>
+<script src="ckeditor/samples/js/sample.js"></script>
+
+<script>
+initTCCSSOCHE();
+initTCCSSANPHAM();
+</script>
+</body>
+</html>
